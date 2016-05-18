@@ -1,0 +1,15 @@
+cd("C:/Users/haupt_000/Desktop/Erlang Labs/ErlangLab3-Chat").
+c(spchat).
+Server1 = spchat:start_server().
+register(chat_server, Server1).
+Client1 = spchat:start_client(chat_server).
+Client2 = spchat:start_client(chat_server).
+spchat:send(Client1, "Hello!").
+spchat:register(Client1, "Vasya").
+spchat:register(Client2, "Vasya").
+spchat:register(Client2, "Anton").
+spchat:send(Client1, "Hello!").
+spchat:send(Client2, "Hi!").
+spchat:send(Client1, "Afk for 20 minutes").
+spchat:disconnect(Client1).
+spchat:disconnect(Client2).
